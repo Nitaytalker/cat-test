@@ -7,7 +7,6 @@ function RandomCat() {
 
     useEffect(() => {
         axios.get('http://localhost:3000/catapi/random').then((e) => {
-            console.log(e.data.id);
             setCatUrl(e.data)
             setLoading(false)
         })
@@ -15,7 +14,6 @@ function RandomCat() {
 
     function newCat(){
         axios.get('http://localhost:3000/catapi/random').then((e) => {
-            console.log(e.data.id);
             setCatUrl(e.data)
         })
     }
