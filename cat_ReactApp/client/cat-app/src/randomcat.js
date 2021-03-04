@@ -11,10 +11,16 @@ function RandomCat() {
             setCatUrl(e.data)
             setLoading(false)
         })
-    }, [loadingState])
+    }, [])
+
+    function newCat(){
+        axios.get('http://localhost:3000/catapi/random').then((e) => {
+            console.log(e.data.id);
+            setCatUrl(e.data)
+        })
+    }
 
     function showImg(cat) {
-        // console.log(cat);
         return (
                 <img src={cat.url} alt="catimg" style={{ maxWidth: "15rem" }}></img>
         )
@@ -28,7 +34,7 @@ function RandomCat() {
                 <div style={{ display: loadingState ? 'none' : 'block',height: "200px" }}>
                 {showImg(cat)}
                 </div>
-                <button onClick={() => { setLoading(true) }}>click me</button>
+                <button onClick={() => { newCat() }}>click me</button>
         </div>
     )
 }
