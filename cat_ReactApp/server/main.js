@@ -22,6 +22,7 @@ app.get('/:id', (req, res) => {
 })
 
 app.get('/catapi/random',(req,res)=>{
+    console.log("....");
     dbModule.getRandomCat().then(data=>{
         res.send(data)
     })
